@@ -1,0 +1,9 @@
+# node modules
+node_modules
+
+# build
+index.js
+index.js.map
+
+# yarn
+yarn-error.log
