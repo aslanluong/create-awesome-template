@@ -13,7 +13,8 @@ const TEMPLATES = [
   green("vue-js"),
   green("vue-ts"),
   cyan("react-webpack-js") + ` (React + Webpack 5 + ESBuild Loader)`,
-  cyan("react-ts"),
+  cyan("react-webpack-ts") +
+    ` (React + Webpack 5 + TypeScript + ESBuilder Loader)`,
 ];
 
 const renameFiles = {
