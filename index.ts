@@ -9,9 +9,10 @@ import { green, cyan, stripColors } from "kolorist";
 const cwd = process.cwd();
 
 const TEMPLATES = [
+  // template-name + ` (description)`
   green("vue-js"),
   green("vue-ts"),
-  cyan("react-js"),
+  cyan("react-webpack-js") + ` (React + Webpack 5 + ESBuild Loader)`,
   cyan("react-ts"),
 ];
 
@@ -65,7 +66,7 @@ async function init() {
 
   // --template expects a value
   if (typeof template === "string") {
-    const availableTemplates = TEMPLATES.map(stripColors);
+    const availableTemplates = TEMPLATES.map(getTemplateName);
     isValidTemplate = availableTemplates.includes(template);
     message = `${template} isn't a valid template. Please choose from below:`;
   }
@@ -77,7 +78,7 @@ async function init() {
       message,
       choices: TEMPLATES,
     });
-    template = stripColors(t);
+    template = getTemplateName(t);
   }
 
   const templateDir = path.join(__dirname, `templates/${template}`);
@@ -133,6 +134,11 @@ function emptyDir(dir: string) {
     // fs.rmSync: added in nodejs v14.14.0
     fs.rmSync(abs, { recursive: true });
   }
+}
+
+function getTemplateName(nameWithDescription: string) {
+  // get name <-- template-name (template description)
+  return stripColors(nameWithDescription).split(" (")[0];
 }
 
 function copy(src: string, dest: string) {

@@ -1,6 +1,9 @@
 # node modules
 node_modules
 
+# IDE - VSCode
+.vscode
+
 # build
 index.js
 index.js.map
