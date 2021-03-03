@@ -8,13 +8,22 @@ import { green, cyan, stripColors } from "kolorist";
 
 const cwd = process.cwd();
 
-const TEMPLATES = [
-  // template-name + ` (description)`
-  green("vue-js"),
-  green("vue-ts"),
-  cyan("react-webpack-js") + ` (React + Webpack 5 + ESBuild Loader)`,
-  cyan("react-webpack-ts") +
-    ` (React + Webpack 5 + TypeScript + ESBuilder Loader)`,
+type Templates = { name: string; hint?: string }[];
+
+const TEMPLATES: Templates = [
+  {
+    name: green("vue-webpack-js"),
+    hint: "(Vue 3 + Webpack 5 + ESBuild Loader)",
+  },
+  { name: green("vue-ts") },
+  {
+    name: cyan("react-webpack-js"),
+    hint: "(React + Webpack 5 + ESBuild Loader)",
+  },
+  {
+    name: cyan("react-webpack-ts"),
+    hint: "(React + Webpack 5 + TypeScript + ESBuilder Loader)",
+  },
 ];
 
 const renameFiles = {
@@ -79,7 +88,7 @@ async function init() {
       message,
       choices: TEMPLATES,
     });
-    template = getTemplateName(t);
+    template = stripColors(t);
   }
 
   const templateDir = path.join(__dirname, `templates/${template}`);
@@ -137,9 +146,8 @@ function emptyDir(dir: string) {
   }
 }
 
-function getTemplateName(nameWithDescription: string) {
-  // get name <-- template-name (template description)
-  return stripColors(nameWithDescription).split(" (")[0];
+function getTemplateName({ name }: Templates[number]) {
+  return stripColors(name);
 }
 
 function copy(src: string, dest: string) {
