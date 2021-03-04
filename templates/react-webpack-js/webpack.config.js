@@ -5,18 +5,17 @@ const { HotModuleReplacementPlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 /** @type { import("webpack").Configuration } */
-module.exports = /** @type { import("webpack").Configuration } */ {
+module.exports = {
   context: __dirname,
   entry: join(__dirname, "src/main.jsx"),
   resolve: {
     extensions: [".js", ".jsx"],
   },
   output: {
-    path: join(__dirname, "/dist"),
+    path: join(__dirname, "dist"),
     filename: "[name].[contenthash:8].js",
   },
   devtool: "cheap-module-source-map",
-  plugins: [new HotModuleReplacementPlugin()],
   module: {
     rules: [
       {
@@ -58,6 +57,7 @@ module.exports = /** @type { import("webpack").Configuration } */ {
       template: join(__dirname, "index.html"),
       favicon: join(__dirname, "src/assets/favicon.ico"),
     }),
+    new HotModuleReplacementPlugin(),
     new ESBuildPlugin(),
     new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ["**/*"] }),
   ],

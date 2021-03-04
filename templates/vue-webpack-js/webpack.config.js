@@ -13,7 +13,7 @@ module.exports = {
     extensions: [".js", ".vue"],
   },
   output: {
-    path: join(__dirname, "/dist"),
+    path: join(__dirname, "dist"),
     filename: "[name].[contenthash:8].js",
   },
   devtool: "cheap-module-source-map",
