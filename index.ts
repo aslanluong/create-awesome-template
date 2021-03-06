@@ -15,7 +15,10 @@ const TEMPLATES: Templates = [
     name: green("vue-webpack-js"),
     hint: "(Vue 3 + Webpack 5 + ESBuild Loader)",
   },
-  { name: green("vue-ts") },
+  {
+    name: green("vue-ts"),
+    hint: "(Vue 3 + Webpack 5 + TypeScript + ESBuild Loader)",
+  },
   {
     name: cyan("react-webpack-js"),
     hint: "(React + Webpack 5 + ESBuild Loader)",
