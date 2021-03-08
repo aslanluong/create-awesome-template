@@ -33,7 +33,7 @@ const renameFiles = {
   _gitignore: ".gitignore",
 };
 
-async function init() {
+async function main() {
   const argv = minimist(process.argv.slice(2));
 
   let targetDir = argv._[0];
@@ -171,4 +171,4 @@ function copyDir(srcDir: string, destDir: string) {
   }
 }
 
-init().catch((error) => console.error(error));
+main().catch((error) => console.error(error));
