@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/aslanluong/create-awesome-template/compare/v1.0.0...v1.0.1) (2021-03-10)
+
+
+### Bug Fixes
+
+* **scripts:** add build step ([e3f165e](https://github.com/aslanluong/create-awesome-template/commit/e3f165ea826988c6b6ace4024d2356d179c948f1))
+* **scripts:** async generate changelog ([111532e](https://github.com/aslanluong/create-awesome-template/commit/111532e60df5d921c266e6349187bf976813582d))
+
+
+
 # 1.0.0 (2021-03-10)
 
 
