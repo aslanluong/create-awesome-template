@@ -64,6 +64,9 @@ async function main() {
   stepLog("\nUpdating package version...");
   updateVersion(targetVersion);
 
+  stepLog("\nBuilding package...");
+  await runCommand("pnpm", ["build"]);
+
   stepLog("\nGenerating changelog...");
   await runCommand("pnpm", ["changelog"]);
 
@@ -78,9 +81,6 @@ async function main() {
 
   stepLog("\nPublishing package...");
   await publishPackage(targetVersion);
-
-  stepLog("\nBuilding package...");
-  await runCommand("pnpm", ["build"]);
 
   stepLog("\nPushing to GitHub...");
   await runCommand("git", ["tag", tag]);
