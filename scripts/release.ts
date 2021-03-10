@@ -65,7 +65,7 @@ async function main() {
   updateVersion(targetVersion);
 
   stepLog("\nGenerating changelog...");
-  execa("pnpm", ["changelog"]);
+  await runCommand("pnpm", ["changelog"]);
 
   const { stdout } = await runCommand("git", ["diff"], { stdio: "pipe" });
   if (stdout) {
