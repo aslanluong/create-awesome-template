@@ -4,7 +4,7 @@ import { inc, valid, ReleaseType } from "semver";
 import execa from "execa";
 import { prompt } from "enquirer";
 import fs from "fs";
-import { cyan, red, yellow, bold } from "kolorist";
+import { cyan, green, red, yellow, bold } from "kolorist";
 
 const args = minimist(process.argv.slice(2));
 const cwd = process.cwd();
@@ -20,11 +20,11 @@ async function main() {
   let targetVersion = validateVersion(args._[0]);
 
   if (!targetVersion) {
-    // no explicit version, offer suggestions
+    console.log(`Current package version: ${cyan(currentVersion)}`);
     const { release } = await prompt<{ release: string }>({
       type: "select",
       name: "release",
-      message: "Select release type",
+      message: "Select release type:",
       choices: releaseTypes
         .map((type) => `${type} (${increaseVersion(type)})`)
         .concat(["custom"]),
@@ -34,7 +34,7 @@ async function main() {
       const { version } = await prompt<{ version: string }>({
         type: "input",
         name: "version",
-        message: "Input custom version",
+        message: "Input custom version:",
         initial: currentVersion,
       });
       targetVersion = version;
@@ -68,6 +68,23 @@ async function main() {
   execa("pnpm", ["changelog"]);
 
   const { stdout } = await runCommand("git", ["diff"], { stdio: "pipe" });
+  if (stdout) {
+    stepLog("\nCommitting changes...");
+    await runCommand("git", ["add", "-A"]);
+    await runCommand("git", ["commit", "-m", `release: ${tag}`]);
+  } else {
+    console.log("No changes to commit.");
+  }
+
+  stepLog("\nPublishing package...");
+  await publishPackage(targetVersion);
+
+  stepLog("\nPushing to GitHub...");
+  await runCommand("git", ["tag", tag]);
+  await runCommand("git", ["push", "origin", `refs/tags/${tag}`]);
+  await runCommand("git", ["push"]);
+
+  console.log();
 }
 
 function runCommand(
@@ -93,6 +110,32 @@ function stepLog(message: string) {
 function updateVersion(version: string) {
   pkg.version = version;
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
+}
+
+async function publishPackage(version: string) {
+  const publicArgs = [
+    "publish",
+    "--no-git-tag-version",
+    "--new-version",
+    version,
+    "--access",
+    "public",
+  ];
+  if (args.tag) {
+    publicArgs.push(`--tag`, args.tag);
+  }
+  try {
+    await runCommand("yarn", publicArgs, {
+      stdio: "pipe",
+    });
+    console.log(green(`Successfully published ${pkgName}@${version}`));
+  } catch (error) {
+    if (/previously published/.test(error.stderr)) {
+      console.log(red(`Skipping already published: ${pkgName}`));
+    } else {
+      throw error;
+    }
+  }
 }
 
 main().catch((error) => console.error(error));
