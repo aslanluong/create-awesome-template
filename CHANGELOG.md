@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/aslanluong/create-awesome-template/compare/v1.0.1...v1.0.2) (2021-03-10)
+
+
+### Bug Fixes
+
+* **templates:** wrong build step order ([af21bc2](https://github.com/aslanluong/create-awesome-template/commit/af21bc2663a756af9492b8c86780d8754b6ebb15))
+
+
+
 ## [1.0.1](https://github.com/aslanluong/create-awesome-template/compare/v1.0.0...v1.0.1) (2021-03-10)
 
 
