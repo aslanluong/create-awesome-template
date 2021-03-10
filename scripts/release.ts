@@ -79,6 +79,9 @@ async function main() {
   stepLog("\nPublishing package...");
   await publishPackage(targetVersion);
 
+  stepLog("\nBuilding package...");
+  await runCommand("pnpm", ["build"]);
+
   stepLog("\nPushing to GitHub...");
   await runCommand("git", ["tag", tag]);
   await runCommand("git", ["push", "origin", `refs/tags/${tag}`]);
@@ -118,8 +121,6 @@ async function publishPackage(version: string) {
     "--no-git-tag-version",
     "--new-version",
     version,
-    "--access",
-    "public",
   ];
   if (args.tag) {
     publicArgs.push(`--tag`, args.tag);
