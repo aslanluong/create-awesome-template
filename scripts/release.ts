@@ -65,10 +65,10 @@ async function main() {
   updateVersion(targetVersion);
 
   stepLog("\nBuilding package...");
-  await runCommand("pnpm", ["build"]);
+  await runCommand("yarn", ["build"]);
 
   stepLog("\nGenerating changelog...");
-  await runCommand("pnpm", ["changelog"]);
+  await runCommand("yarn", ["changelog"]);
 
   const { stdout } = await runCommand("git", ["diff"], { stdio: "pipe" });
   if (stdout) {
