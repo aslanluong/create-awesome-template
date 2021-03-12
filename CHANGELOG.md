@@ -1,3 +1,7 @@
+# [1.1.0](https://github.com/aslanluong/create-awesome-template/compare/v1.0.2...v1.1.0) (2021-03-12)
+
+
+
 ## [1.0.2](https://github.com/aslanluong/create-awesome-template/compare/v1.0.1...v1.0.2) (2021-03-10)
 
 
