@@ -10,3 +10,6 @@ index.js.map
 
 # yarn
 yarn-error.log
+
+# templates
+templates/*/pnpm-lock.yaml
