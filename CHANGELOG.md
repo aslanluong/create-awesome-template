@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/aslanluong/create-awesome-template/compare/v1.2.0...v1.2.1) (2021-03-13)
+
+
+### Bug Fixes
+
+* **templates:** preact-webpack-js ([5170069](https://github.com/aslanluong/create-awesome-template/commit/5170069a4d0f182190970124a3eb7fc0d6908954))
+
+
+
 # [1.2.0](https://github.com/aslanluong/create-awesome-template/compare/v1.1.0...v1.2.0) (2021-03-13)
 
 
