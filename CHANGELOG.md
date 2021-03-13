@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/aslanluong/create-awesome-template/compare/v1.1.0...v1.2.0) (2021-03-13)
+
+
+### Features
+
+* add preact-webpack-js template ([acb085b](https://github.com/aslanluong/create-awesome-template/commit/acb085bb61190efafa5128cc5f1ed43556ede590))
+
+
+
 # [1.1.0](https://github.com/aslanluong/create-awesome-template/compare/v1.0.2...v1.1.0) (2021-03-12)
 
 
