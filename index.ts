@@ -4,7 +4,7 @@ import minimist from "minimist";
 import { prompt } from "enquirer";
 import path from "path";
 import fs from "fs";
-import { green, cyan, stripColors } from "kolorist";
+import { green, cyan, stripColors, magenta } from "kolorist";
 
 const cwd = process.cwd();
 
@@ -26,6 +26,10 @@ const TEMPLATES: Templates = [
   {
     name: cyan("react-webpack-ts"),
     hint: "(React + Webpack 5 + TypeScript + ESBuilder Loader)",
+  },
+  {
+    name: magenta("preact-webpack-js"),
+    hint: "(Preact + Webpack 5 + ESBuild Loader)",
   },
 ];
 
