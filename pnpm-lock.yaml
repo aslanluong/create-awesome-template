@@ -4,7 +4,7 @@ dependencies:
   minimist: 1.2.5
 devDependencies:
   '@types/minimist': 1.2.1
-  '@types/node': 14.14.33
+  '@types/node': 14.14.34
   '@types/semver': 7.3.4
   execa: 5.0.0
   nodemon: 2.0.7
@@ -31,10 +31,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-fZQQafSREFyuZcdWFAExYjBiCL7AUCdgsk80iO0q4yihYYdcIiH28CcuPTGFgLOCC8RlW49GSQxdHwZP+I7CNg==
-  /@types/node/14.14.33:
+  /@types/node/14.14.34:
     dev: true
     resolution:
-      integrity: sha512-oJqcTrgPUF29oUP8AsUqbXGJNuPutsetaa9kTQAQce5Lx5dTYWV02ScBiT/k1BX/Z7pKeqedmvp39Wu4zR7N7g==
+      integrity: sha512-dBPaxocOK6UVyvhbnpFIj2W+S+1cBTkHQbFQfeeJhoKFbzYcVUGHvddeWPSucKATb3F0+pgDq0i6ghEaZjsugA==
   /@types/semver/7.3.4:
     dev: true
     resolution:
@@ -1071,7 +1071,7 @@ packages:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
   '@types/minimist': ^1.2.1
-  '@types/node': ^14.14.33
+  '@types/node': ^14.14.34
   '@types/semver': ^7.3.4
   enquirer: ^2.3.6
   execa: ^5.0.0
