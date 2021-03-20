@@ -31,6 +31,10 @@ const TEMPLATES: Templates = [
     name: magenta("preact-webpack-js"),
     hint: "(Preact + Webpack 5 + ESBuild Loader)",
   },
+  {
+    name: magenta("preact-webpack-ts"),
+    hint: "(Preact + Webpack 5 + TypeScript + ESBuild Loader)",
+  },
 ];
 
 const renameFiles = {
