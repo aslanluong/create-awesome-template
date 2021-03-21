@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/aslanluong/create-awesome-template/compare/v1.2.1...v1.3.0) (2021-03-21)
+
+
+### Bug Fixes
+
+* **templates:** wrong react-webpack-js title ([369f82e](https://github.com/aslanluong/create-awesome-template/commit/369f82ec30452d59192630a5b5746eb076df5a79))
+
+
+### Features
+
+* add preact-webpack-ts template ([00ca221](https://github.com/aslanluong/create-awesome-template/commit/00ca2214afc89855bd744f8e43b1c3ca15edb5f5))
+
+
+
 ## [1.2.1](https://github.com/aslanluong/create-awesome-template/compare/v1.2.0...v1.2.1) (2021-03-13)
 
 
